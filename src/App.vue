@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <b-navbar toggleable="md" type="dark" variant="info">
+    <b-navbar toggleable="md" type="dark" variant="info" class="fixed-top" >
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-    <b-button size="sm"  type="button" class="nav-btn" > <a href="/leftnav"> ></a> </b-button>
-    <b-navbar-brand href="#">NavBar</b-navbar-brand>
+    <b-button size="sm"  type="button" class="nav-btn" :variant="variant" > <a href="#/leftnav"> ></a> </b-button>
+    <b-navbar-brand href="#">NaVya</b-navbar-brand>
 
     <b-collapse is-nav id="nav_collapse">
 
@@ -15,26 +15,26 @@
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
+        <b-nav-form class="navBars">
+          <b-form-input size="sm" class="mr-sm-2 " type="text" placeholder="Search"/>
           <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-          <b-button size="sm"  class="nav-btn" type="button"><a href="/rightnav"> < </a></b-button>
         </b-nav-form>
+        <b-button size="sm"  class="nav-btn" :variant="variant" type="button"><a href="#/rightnav"> < </a></b-button>
       </b-navbar-nav>
 
     </b-collapse>
     </b-navbar>
-    <main >
+    <main style="margin-top: 70px;">
       <b-container fluid>
         <!-- Content here -->
         <b-row auto>
-            <b-col xl="3">
+            <b-col xl="2">
               <LeftNav class="navBars"/>
             </b-col>
-            <b-col xl="6">
+            <b-col xl="8">
               <router-view></router-view>
             </b-col>
-            <b-col xl="3">
+            <b-col xl="2">
               <RightNav class="navBars"/>
             </b-col>
         </b-row>
@@ -55,7 +55,8 @@ export default {
   components: { LeftNav,RightNav },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      variant:'outline-primary'
     }
   }
 }
@@ -81,6 +82,7 @@ and (max-device-width : 480px)  {
       display: none;
     }
 }
+
 .flyout {
   display:flex;
   flex-direction: column;
